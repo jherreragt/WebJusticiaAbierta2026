@@ -1,0 +1,126 @@
+{% extends "src/base.njk" %}
+
+{% block head %}
+<title>{{title}}</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+    <div class="section m-0 py-6" style="background-color:#f1f4fa">
+        <div class="container">
+            <div class="row my-6 py-6">
+                <div class="col-lg-12">
+
+                    <div class="my-6" style="text-align:center">
+                        <h3>{{title}}</h3>
+                        <p>{{description}}
+                        </p>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- propuestas -->
+    <div class="section my-6">
+        <div class="container">
+            <div class="row">
+                
+
+                <div class="col-lg-12"> 
+                    <!--coleccion de filtros-->
+                </div>
+
+                {% for prop in collections.propuestas %}
+                    {% if prop.data.propuestas.categoria === title %}
+                        {% if prop.data.propuestas.encuentro == "Si" %}
+
+                        <div class="col-lg-4 my-4">
+                            <div class="cuadro_propuesta">
+                                <div class="tags">
+                                    <a href="/categorias/{{prop.data.propuestas.categoria | slug}}" class="filtros">{{prop.data.propuestas.categoria}}</a>
+                                </div>
+                                <div class="numero_propuesta">
+                                    <p>propuesta N.{{prop.data.propuestas.numero_propuesta}}</p>
+                                </div>
+                                <div class="contenido">
+                                    <h5>{{prop.data.propuestas.titulo}}</h5>
+                                    <p>{{prop.data.propuestas.resumen}}</p>
+                                </div>
+                                <div class="bottom">
+                                    <!--div class="candidaturas">
+                                        <h4>4</h4>
+                                        <span>candidatura(s) comprometida(s)</span>
+                                    </div>
+                                    <div class="ciudadanos">
+                                        <h4>20</h4>
+                                        <span>apoyo(s) ciudadano(s)</span>
+                                    </div-->
+                                    <div class="botones_finales">
+                                        <!--a href="#" class="apoyar"><i class="fa-solid fa-heart" style="margin-right:4px"></i>Apoyar</a-->
+                                        <a href="{{prop.url}}" class="vermas">Leer más</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endif %}
+
+                        {% if prop.data.propuestas.encuentro == "No" %}
+
+                        <div class="col-lg-4 my-4">
+                            <div class="cuadro_propuesta">
+                                <div class="tags">
+                                    <a href="/categorias/{{prop.data.propuestas.categoria | slug}}" class="filtros">{{prop.data.propuestas.categoria}}</a>
+                                </div>
+                                <div class="numero_propuesta">
+                                    <p>propuesta N.{{prop.data.propuestas.numero_propuesta}}</p>
+                                </div>
+                                <div class="contenido">
+                                    <h5>{{prop.data.propuestas.titulo}}</h5>
+                                    <p>{{prop.data.propuestas.resumen}}</p>
+                                </div>
+                                <div class="bottom">
+                                    <!--div class="candidaturas">
+                                        <h4>4</h4>
+                                        <span>candidatura(s) comprometida(s)</span>
+                                    </div>
+                                    <div class="ciudadanos">
+                                        <h4>20</h4>
+                                        <span>apoyo(s) ciudadano(s)</span>
+                                    </div-->
+                                    <div class="botones_finales">
+                                        <!--a href="#" class="apoyar"><i class="fa-solid fa-heart" style="margin-right:4px"></i>Apoyar</a-->
+                                        <a href="{{prop.url}}" class="vermas">Leer más</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% endif %}
+                    {% endif %}
+
+                {% endfor %}
+                
+
+                <!--div class="d-flex justify-content-center">
+                    {% if pagination.href.previous %}
+                    <div class="mx-4">
+                        {% if pagination.href.previous %}<a href="{{ pagination.href.previous }}">← Iniciativas más recientes</a>{% else %}←  Nuevos blog{% endif %}
+                    </div>
+                    {% endif %}
+                    {% if pagination.href.next %}
+                    <div class="mx-4">
+                        {% if pagination.href.next %}<a href="{{ pagination.href.next }}">Iniciativas anteriores →</a>{% else %}Blog anteriores →{% endif %}
+                    </div>
+                    {% endif %}
+                </div-->
+
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock %}

@@ -1,0 +1,129 @@
+---
+permalink: encuentro/index.html
+---
+{% extends "src/base.njk" %}
+
+{% block head %}
+<title>Justicia Abierta | Encuentro</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="section m-0 py-6" style="background-image:url('/ELEMENTOS/ELEMENTOS MEJORAS_JA/SLIDER/JA-18.png');background-repeat: no-repeat;background-size: 100% 100%;">
+        <div class="container my-6">
+            <div class="row my-6 py-6">
+                <div class="col-lg-12 my-6">
+
+                    <div class="my-6 py-6" style="text-align:center">
+                        <img style="padding:25px" src="/ELEMENTOS/ELEMENTOS MEJORAS_JA/ICONOS/e.png">
+                        <h3 class="text-white" style="font-size:35px">Encuentro de Justicia Abierta</h3>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- que es de Justicia Abierta-->
+    <div class="section m-0" style="background-color: #f1f5fd">
+        <div class="container py-6">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+
+                    <div style="text-align:justify">
+                        <h3>¿Qué es el Encuentro de Justicia Abierta?</h3>
+                        <p style="font-size:18px;line-height:22px">
+                            El Encuentro de Justicia Abierta es un evento anual organizado por Red Ciudadana con el objetivo de promover el conocimiento y la colaboración en el ámbito de la justicia abierta.  
+                            <br><br>Estas presentaciones brindan a los asistentes al Encuentro de Justicia Abierta una visión integral de los diferentes aspectos relacionados con la justicia abierta. Desde una introducción general hasta temas más específicos como datos abiertos y lenguaje claro, se busca fomentar el intercambio de ideas y el aprendizaje entre los participantes, con el objetivo de fortalecer el sector justicia y promover una mayor transparencia e inclusión en el sistema judicial.
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div style="text-align:center">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/T1B66HlFX-E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ciclo de Justicia Abierta-->
+    <div class="section m-0" style="background-color:#fff">
+        <div class="container my-6">
+            <div class="row">
+                <div class="col-xl-12 text-center">
+
+                    <h1>Sesiones 2023</h1>
+                    <h6>A continuación, se detalla el contenido de las conferencias y presentaciones realizadas en el Encuentro Justicia Abierta 2023:
+                    </h6>
+
+                </div>
+            </div>
+
+            <div class="row py-4 my-4">
+                {% for video in collections.videos %}
+                <div class="col-lg-6 my-4">
+                    <h3>{{video.data.title}}</h3>
+                    <div style="text-align:center">
+                        {{video.data.link | safe}}
+                    </div>
+                </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </div>
+
+    <!--div class="section" style="background-color: #f1f5fd">
+        <div class="container pt-130 pb-130">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-10 col-xl-10 col-sm-12 col-md-12 mb-40 text-center">
+                    <h1>Registro al Evento</h1>
+                    <p>El Índice de inovación Pública mide las capacidades que poseen las instituciones
+                        para generar nuevas o mejoradas ideas, procesos, productos o servicios que, mediante la co-creación
+                        entre diferentes actores. El Índice de inovación Pública mide las capacidades que poseen las instituciones
+                        para generar nuevas o mejoradas ideas, procesos, productos o servicios que, mediante la co-creación
+                        entre diferentes actores.</p>
+                    <a class="btn" href="#">Regístrate</a>
+
+                </div>
+            </div>
+        </div>
+    </div-->
+
+    <div class="section m-0" style="background-color:#fff">
+        <div class="container my-6">
+            <div class="row mb-40 ">
+                <div class="col-lg-12 text-center">
+                    <h1>Organizado por:</h1>
+                </div>
+                <div class="col-lg-8 d-flex m-auto py-6">
+                    <div class="col-lg-6 text-center">
+                        <img width="300px" src="/ELEMENTOS/03_LOGOS/LOGOS-14.png">
+                    </div>
+                    <div class="col-lg-6 text-center">
+                        <img width="100px" src="/ELEMENTOS/03_LOGOS/LOGOS-15.png">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h1>Con el Apoyo de:</h1>
+                </div>
+                <div class="col-lg-12 text-center py-6">
+                    <img width="300px" src="/ELEMENTOS/03_LOGOS/LOGOS-16.png">
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock %}

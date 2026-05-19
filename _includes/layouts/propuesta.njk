@@ -1,0 +1,85 @@
+{% extends "src/base.njk" %}
+
+{% block head %}
+    <title>{{ title }}</title>
+
+    <link rel="stylesheet" href="/css/animate.min.css" />
+    <link rel="stylesheet" href="/css/mainvendor.css" />
+{% endblock %}
+
+{% block content %}
+    <div class="height-86"></div>
+    <div class="page-content mb-50">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-11 col-lg-12 m-auto">
+                    <div class="row">
+                        
+                        <div class="col-lg-3 primary-sidebar sticky-sidebar pt-50 px-1">
+                            <div class="widget-area">
+                                <div class="sidebar-widget widget-category-2 mb-50">
+                                    <h5 class="section-title style-1 mb-30">Detalles de Propuesta</h5>
+                                    <ul>
+                                        <li>           
+                                            <a href="#"> <img style="width:30px;height:30px" src="/assets/01_ICONOS/PROPUESTAS JA_02-15.png" alt="" />Categoría: {{categoria}}</a>
+                                        </li>
+                                        <li>
+                                            <a style="pointer-events:none" href="#"> <img style="width:30px;height:30px" src="/assets/01_ICONOS/PROPUESTAS JA_02-18.png" alt="" />Plazo: {{tiempo}}</a>
+                                        </li>
+                                        <li>
+                                            <a style="pointer-events:none" href="#"> <img style="width:24px;height:30px;margin-right:23px" src="/assets/01_ICONOS/ICONO.png" alt="" />Ubicación: {{departamento}}</a>
+                                        </li>
+                                        
+                                        <li>
+                                            <a style="pointer-events:none" href="#"> <img style="width:30px;height:30px" src="/assets/01_ICONOS/PROPUESTAS JA_02-17.png" alt="" />¿Esta propuesta es producto de un Encuentro Ciudadano?: {{producto_encuentro}}</a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-9 px-2">
+                            <div class="single-page pt-50 pl-30">
+                                <div class="single-header style-2">
+                                    <div class="row">
+                                        <div class="col-xl-10 col-lg-12 m-auto">
+                                            <h6 class="mb-10 text-left"><a href="#">Propuesta</a></h6>
+                                            <h2 class="mb-10">{{title}}</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="single-content">
+                                    <div class="row">
+                                        <div class="col-xl-10 col-lg-12 m-auto texto-servicio">
+                                            <p>{{resumen | rmj |safe}}</p>
+                                            <h4 class="text-left">El Problema</h4>
+                                            <p>{{problema | rmj |safe}}</p>
+                                            <div class="linea_azul"></div>
+                                            <h4 class="text-left">La Causa</h4>
+                                            <p>{{causa | rmj |safe}}</p>
+                                            <div class="linea_azul"></div>
+                                            <h4 class="text-left">La Propuesta</h4>
+                                            <p>{{propuesta | rmj |safe}}</p>
+                                            
+                                            <!--a class="btn mb-20" href="#" target="_blank">Apoyar</a-->
+
+                                            <!--Comment form-->
+                                            <div class="comment-form ">
+                                                <!--DISQUSS-->
+                                                
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
