@@ -1,2 +1,0 @@
-# JusticiaAbierta
-Justicia Abierta Guatemala

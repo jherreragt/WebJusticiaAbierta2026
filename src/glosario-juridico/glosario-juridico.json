@@ -1,4 +1,0 @@
-{
-    "tags": "glosario_juridico",
-    "permalink": "glosario_juridico/{{ page.fileSlug | slug}}/index.html"
-}

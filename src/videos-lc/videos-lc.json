@@ -1,4 +1,0 @@
-{
-    "tags": "videos_lc",
-    "permalink": "videos_lc/{{ page.fileSlug | slug}}/index.html"
-}

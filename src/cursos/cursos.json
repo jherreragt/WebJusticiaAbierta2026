@@ -1,5 +1,0 @@
-{
-    "tags": "cursos",
-    "permalink": "cursos/{{ page.fileSlug | slug}}/index.html",
-    "layout": "layouts/curso.njk"
-}

@@ -1,5 +1,0 @@
-{
-    "tags": "categorias",
-    "permalink": "categorias/{{ page.fileSlug | slug}}/index.html",
-    "layout": "layouts/categoria.njk"
-}

@@ -1,5 +1,0 @@
-{
-    "tags": "normas_explicadas",
-    "permalink": "normas_explicadas/{{ page.fileSlug | slug}}/index.html",
-    "layout": "layouts/normas-explicadas.njk"
-}
