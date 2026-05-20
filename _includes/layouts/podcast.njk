@@ -1,0 +1,28 @@
+{% extends "src/base.njk" %}
+
+{% block head %}
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block content %}
+
+        <!-- Content
+		============================================= -->
+		<section id="content">
+			<div class="content-wrap">
+
+                <!-- event-area-start -->
+                <div class="event-area pt-60 pb-130">
+                    <div class="container d-flex justify-content-center">
+                        <div class="row h-100 w-100 text-center">
+                            <h1>{{title}}</h1><br><br>
+                            <iframe height="155px" src="{{link}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br><br>
+							<p class="txt-video">{{description}}</p>
+                        </div>
+                    </div>
+                </div>
+        
+            </div>
+        </section>
+    
+{% endblock %}

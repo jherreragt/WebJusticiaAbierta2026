@@ -1,0 +1,29 @@
+{
+  "name": "justiciaabierta",
+  "version": "1.0.0",
+  "description": "Justicia Abierta Guatemala",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RedCiudadana/JusticiaAbierta.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RedCiudadana/JusticiaAbierta/issues"
+  },
+  "homepage": "https://github.com/RedCiudadana/JusticiaAbierta#readme",
+  "dependencies": {
+    "moment": "^2.29.4",
+    "nunjucks": "^3.2.3",
+    "render-markdown-js": "^1.3.0"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}

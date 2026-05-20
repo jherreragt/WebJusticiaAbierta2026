@@ -1,0 +1,46 @@
+---
+permalink: videos-lc/index.html
+---
+{% extends "src/base.njk" %}
+
+{% block head %}
+<title>Justicia Abierta | Videos</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+    <!--SLIDER-->  
+    <div class="section m-0 py-6" style="background-image:url('/ELEMENTOS/ELEMENTOS MEJORAS_JA/SLIDER SECCIONES/JA-29.png');background-repeat: no-repeat;background-size: 100% 100%;">
+        <div class="container my-6">
+            <div class="row my-6 py-6">
+                <div class="col-lg-12 my-6">
+
+                    <div class="my-6 py-6" style="text-align:center">
+
+                        <h3 class="text-white" style="font-size:35px">Vides</h3>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+     <!-- videos -->
+    <div class="section m-0" >
+        <div class="container my-6">
+            <div class="row">
+                
+                {% for video in collections.videos_lc %}
+                <div class="col-lg-4 cuadro_video">
+                    {{video.data.link | safe}}
+                    <p>{{video.data.descripcion}}</p>
+                </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

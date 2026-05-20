@@ -1,0 +1,353 @@
+---
+permalink: Congreso-Derecho-Laboral-2024/index.html
+---
+{% extends "src/base2.njk" %}
+
+{% block head %}
+<title>Justicia Abierta | Encuentro</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="section m-0 py-6" style="background-image:url('/ELEMENTOS/Congreso/01_SLIDER/CONGRESO\ LABORALai-03.png');background-repeat: no-repeat;background-size: 100% 100%;">
+        <div class="container">
+            <div class="row my-6">
+                <div class="col-lg-12">
+
+                    <div class="my-4" style="text-align:center">
+                        <img style="padding:25px" src="/ELEMENTOS/Congreso/01_SLIDER/CONGRESO LABORALai-04.png">
+                        <!-- <h3 class="text-white" style="font-size:35px">Congreso de Derecho Laboral 2024</h3> -->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section p-0">
+        <div class="container ">
+            <div class="row ">
+                <div class="col-lg-12 text-center">
+                    <h5>Explora expedientes emblemáticos en la Jurisprudencia del Derecho Laboral</h5>
+                    
+                    <form id="searchForm">
+                        <div class="row">
+                            <div class="col-lg-6 my-2">
+                                <select id="tema">
+                                    <option value="">Todos los Temas</option>
+                                    {% for expediente in expedientes | unique('tema') %}
+                                    <option value="{{ expediente.tema }}">{{ expediente.tema }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-lg-6 my-2">
+                                <select id="criterios">
+                                    <option value="">Todos los Criterios</option>
+                                    <!-- Este select se actualizará dinámicamente -->
+                                </select>
+                            </div>
+                            <div class="col-lg-12 my-2">
+                                <select id="institucion">
+                                    <option value="">Todas las Instituciones</option>
+                                    {% for expediente in expedientes | unique('institucion') %}
+                                    <option value="{{ expediente.institucion }}">{{ expediente.institucion }}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+
+                            <div class="col-lg-4 my-2">
+                                <input class="m-0" type="text" id="fname" name="fname" placeholder="Buscar por número de expediente...">
+                            </div>
+                            <div class="col-lg-4 my-2">
+                                <input class="m-0" type="submit" value="Buscar">
+                            </div>
+
+                            <div class="col-lg-4 my-2 d-flex align-items-center">
+                                <button class="m-0" type="button" id="resetFilters">Limpiar Filtros</button>
+                            </div>
+                        </div>           
+                        
+                    </form>               
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Expedientes -->
+    <div class="section m-0" style="background-color: #f1f5fd">
+        <div class="container py-4">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <h4>Expedientes por Criterios y Jurisprudencia</h4>
+                    <br>
+                    <h6 class="text-center" id="expedienteCounter"></h6>
+                    <br><br>
+                    <div class="table-container">
+                        <div class="table-header">
+                            <div class="table-cell" style="flex:1"><img src="/ELEMENTOS/Congreso/02_ICONOS/CONGRESO LABORALai-05.png" >Institución</div>
+                            <div class="table-cell"><img src="/ELEMENTOS/Congreso/02_ICONOS/CONGRESO LABORALai-07.png">Tema</div>
+                            <div class="table-cell"><img src="/ELEMENTOS/Congreso/02_ICONOS/CONGRESO LABORALai-07.png">Criterios y Jurisprudencia</div>
+                            <div class="table-cell"><img src="/ELEMENTOS/Congreso/02_ICONOS/CONGRESO LABORALai-06.png">No. de Expediente</div>
+                            <div class="table-cell justify-content-center">PDF</div>
+                            
+                        </div>
+                        <div class="table-body">
+                            {% for expediente in expedientes %}
+                            <div class="table-row" id="row-{{ expediente.no_expediente }}">
+                                <div class="table-cell justify-content-center" style="flex:1">
+                                    {% if expediente.tema == "6. Jurisprudencia de la Corte Interamericana" %}
+                                    <img style="height:50px; margin-right: 5px;" src="/ELEMENTOS/logointer.png" alt="Logo Congreso"/>
+                                    {% else %}
+                                    <img style="height:50px; margin-right: 5px;" src="/ELEMENTOS/logocongreso.png" alt="Logo Congreso"/>
+                                    {% endif %}
+                                    {{ expediente.institucion }}
+                                </div>
+                                <div class="table-cell criterios">{{ expediente.tema }}</div>
+                                <div class="table-cell criterios">{{ expediente.criterios }}</div>
+                                <div class="table-cell no-expediente">{{ expediente.no_expediente }}</div>
+                                <div class="table-cell" style="display:block;text-align:center">
+                                    <a target="_blank" href="{{ expediente.pdf }}" class="btn2 btn-blue">Descarga (PDF) <i class="fa-solid fa-arrow-down"></i></a>
+                                </div>
+                            
+                            </div>  
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <div class="pagination-controls my-4 text-center">
+                        <button id="prevPage" class="btn2 btn-blue">Anterior</button>
+                        <span id="pageIndicator"></span>
+                        <button id="nextPage" class="btn2 btn-blue">Siguiente</button>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- videos -->
+    <div class="section m-0" style="background-color: #fff">
+        <div class="container my-4">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <a target="_blank" href="https://youtu.be/4HAnRdnv0iA?si=VDyetSDWX25HBQSP"><div class="cuadro_final ">
+                        <img src="/ELEMENTOS/criterios/JA-29.png">
+                        <h4 class="mb-2">Videos del Congreso Interinstitucional de Derecho Laboral 2024</h4>
+                    </div></a>
+                </div>
+                <div class="col-lg-6">
+                    <a target="_blank" href="https://docs.google.com/document/d/1KIV6Hs9Jeg0ClCw9CF_kKw0dPDRnl-V9MJwVK5emRBo/pub"><div class="cuadro_final ">
+                        <img src="/ELEMENTOS/criterios/JA-33.png">
+                        <h4 class="mb-2">Transcripción del Congreso Interinstitucional de Derecho Laboral 2024</h4>
+                    </div></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ORGANIZADO POR  -->
+    <div class="section m-0" style="background-color: #fff">
+        <div class="container my-4">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <h4 class="text-center">Organizado por:</h4>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="row my-2 align-items-center justify-content-center">
+                                <div class="col-lg-12 m-auto text-center">
+                                    <a target="_blank" href="https://portal.oj.gob.gt/wp-content/uploads/2022/10/logo1.png"><img width="100px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXE7_yM9iaBdoHF4gpJOcDHn1qTgWZJOfiEQ&s "></a>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- APOYO DE -->
+    <div class="section m-0" style="background-color: #fff">
+        <div class="container my-4">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <h4 class="text-center">Con el apoyo de:</h4>
+                </div>
+                <div class="col-lg-12">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="row my-2 align-items-center">
+                                <div class="col-lg-3">
+                                    <a target="_blank" href="https://cc.gob.gt/"><img width="100px" src="/ELEMENTOS/Congreso/03_LOGOS/CONGRESO LABORALai-10.png"></a>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a target="_blank" href="https://edoj.oj.gob.gt/"><img width="100px" src="/ELEMENTOS/Congreso/03_LOGOS/CONGRESO LABORALai-11.png"></a>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a target="_blank" href="https://guatemalanosedetiene.gt/"><img width="250px" src="/ELEMENTOS/Congreso/03_LOGOS/CONGRESO LABORALai-12.png"></a>
+                                </div>
+                                <div class="col-lg-3">
+                                    <a target="_blank" href="https://redciudadana.org/"><img width="250px" src="/ELEMENTOS/Congreso/03_LOGOS/CONGRESO LABORALai-13.png"></a>
+                                </div>
+                            </div>   
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block body_javascripts %}
+<script>
+
+// Variables para la paginación
+let currentPage = 1;
+const rowsPerPage = 10;
+
+// Inicializar la tabla con paginación
+function initTable() {
+    currentPage = 1;  // Asegúrate de iniciar siempre en la primera página
+    updateTable();
+}
+
+// Actualizar la tabla según la página actual y los filtros aplicados
+function updateTable() {
+    let rows = Array.from(document.querySelectorAll(".table-row"));
+    let filteredRows = filterRows(rows);  // Filtrar las filas antes de paginar
+
+    let start = (currentPage - 1) * rowsPerPage;
+    let end = start + rowsPerPage;
+
+    // Ocultar todas las filas y mostrar solo las filas dentro del rango de la página actual
+    rows.forEach(row => {
+        row.style.display = "none";  // Ocultar todas las filas inicialmente
+    });
+
+    // Mostrar solo las filas correspondientes a la página actual
+    filteredRows.slice(start, end).forEach(row => {
+        row.style.display = "";  // Mostrar las filas en el rango de la página actual
+    });
+
+    updateExpedienteCounter(filteredRows.length); // Actualizar el contador de expedientes
+
+    updatePaginationControls(filteredRows.length);  // Actualizar los controles de paginación con el total de filas filtradas
+}
+
+// Función para actualizar el contador de expedientes
+function updateExpedienteCounter(count) {
+    const counterElement = document.getElementById("expedienteCounter");
+    counterElement.textContent = `Expedientes desplegados: ${count}`;
+}
+
+// Actualizar los controles de paginación (número de páginas, botones de anterior y siguiente)
+function updatePaginationControls(totalRows) {
+    let totalPages = Math.ceil(totalRows / rowsPerPage);  // Calcular el número total de páginas
+    totalPages = totalPages > 0 ? totalPages : 1;  // Asegurarse de tener al menos 1 página
+
+    document.getElementById("pageIndicator").textContent = `Página ${currentPage} de ${totalPages}`;
+
+    // Deshabilitar el botón de "Anterior" en la primera página
+    document.getElementById("prevPage").disabled = currentPage === 1;
+
+    // Deshabilitar el botón de "Siguiente" en la última página
+    document.getElementById("nextPage").disabled = currentPage === totalPages;
+}
+
+// Filtrar las filas según los valores en los campos de búsqueda
+function filterRows(rows) {
+    var institucionFilter = document.getElementById("institucion").value.toLowerCase();
+    var temaFilter = document.getElementById("tema").value.toLowerCase();
+    var criteriosFilter = document.getElementById("criterios").value.toLowerCase();
+    var expedienteFilter = document.getElementById("fname").value.toLowerCase();
+
+    return rows.filter(row => {
+        var institucion = row.querySelector(".table-cell:first-child").textContent.toLowerCase();
+        var tema = row.querySelector(".criterios").textContent.toLowerCase();
+        var criterios = row.querySelectorAll(".criterios")[1].textContent.toLowerCase();
+        var expediente = row.querySelector(".no-expediente").textContent.toLowerCase();
+
+        var matchesInstitucion = institucion.includes(institucionFilter) || !institucionFilter;
+        var matchesTema = tema.includes(temaFilter) || !temaFilter;
+        var matchesCriterios = criterios.includes(criteriosFilter) || !criteriosFilter;
+        var matchesExpediente = expediente.includes(expedienteFilter) || !expedienteFilter;
+
+        return matchesInstitucion && matchesTema && matchesCriterios && matchesExpediente;
+    });
+}
+
+// Controlar la búsqueda al presionar el botón Buscar
+document.getElementById('searchForm').addEventListener('submit', function(event) {
+    event.preventDefault();  // Prevenir el comportamiento por defecto del formulario
+    currentPage = 1;  // Reiniciar a la primera página tras filtrar
+    updateTable();  // Actualizar la tabla con los filtros aplicados
+});
+
+// Limpiar filtros y reiniciar la tabla
+document.getElementById('resetFilters').addEventListener('click', function() {
+    document.getElementById('institucion').value = "";
+    document.getElementById('tema').value = "";
+    document.getElementById('criterios').value = "";
+    document.getElementById('fname').value = "";
+    currentPage = 1;  // Reiniciar a la primera página
+    updateTable();  // Actualizar la tabla sin filtros
+});
+
+// Eventos de los botones de paginación
+document.getElementById('prevPage').addEventListener('click', function() {
+    if (currentPage > 1) {
+        currentPage--;
+        updateTable();  // Ir a la página anterior
+    }
+});
+
+document.getElementById('nextPage').addEventListener('click', function() {
+    let rows = Array.from(document.querySelectorAll(".table-row"));
+    let filteredRows = filterRows(rows);  // Obtener las filas filtradas
+    let totalPages = Math.ceil(filteredRows.length / rowsPerPage);  // Calcular el total de páginas
+
+    if (currentPage < totalPages) {
+        currentPage++;
+        updateTable();  // Ir a la siguiente página
+    }
+});
+
+// Actualizar los criterios cuando se seleccione un tema
+document.getElementById('tema').addEventListener('change', function() {
+    var selectedTema = this.value.toLowerCase();
+    var criteriosSelect = document.getElementById('criterios');
+    criteriosSelect.innerHTML = '<option value="">Todos los Criterios</option>';
+
+    var uniqueCriterios = new Set();
+    var rows = document.querySelectorAll(".table-row");
+
+    // Recorrer las filas y buscar los criterios asociados al tema seleccionado
+    rows.forEach(row => {
+        var tema = row.querySelector(".criterios").textContent.toLowerCase();
+        if (tema.includes(selectedTema)) {
+            var criterio = row.querySelectorAll(".criterios")[1].textContent;
+            uniqueCriterios.add(criterio);  // Añadir criterio a la lista única
+        }
+    });
+
+    // Agregar los criterios únicos al select de criterios
+    uniqueCriterios.forEach(criterio => {
+        var option = document.createElement("option");
+        option.value = criterio;
+        option.textContent = criterio;
+        criteriosSelect.appendChild(option);
+    });
+});
+
+// Inicializar la tabla y los controles al cargar la página
+initTable();
+
+
+
+</script>    
+    
+{% endblock %}

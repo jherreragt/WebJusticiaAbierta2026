@@ -1,0 +1,54 @@
+{% extends "src/base.njk" %}
+
+{% block head %}
+<title>{{ title }}</title>
+{% endblock %}
+
+{% block content %}
+
+    <!-- Seccion -->
+    <div class="section m-0" style="background-color:#f1f5fd">
+        <div class="container py-6">
+            <div class="row ">
+            
+                <div class="col-lg-12 my-4">
+                    <div class="row">
+                        <h2 class="text-left">{{title}}</h2>
+                        <br>
+
+                        <div class="col-lg-12 d-flex my-4">
+                            <div class="row">
+                                <div class="col-lg-3 p-0">
+                                    <img src="/ELEMENTOS/08_GRAFICAS/placeholder.png">
+                                </div>
+                                <div class="col-lg-9 p-0">
+                                    <div class="mx-4">
+                                        
+                                        <p class="text-justify"><strong>¿Qué es? </strong></p>
+                                        <ul style="margin-left: 15px;">
+                                            <li class="text-justify" style="list-style: disc;">{{descripcion}}</li>
+                                        </ul>
+                                        <p class="text-justify mt-4"><strong>¿Para qué sirve? </strong></p>
+                                        <ul style="margin-left: 15px;">
+                                            <li class="text-justify" style="list-style: disc;">{{paraque}}</li>
+                                        </ul>
+                                        <p class="text-justify mt-4"><strong>¿Quiénes tienen la obligación? </strong></p>
+                                        <ul style="margin-left: 15px;">
+                                            <li class="text-justify" style="list-style: disc;">{{quienes}}</li>
+                                        </ul>
+                                        <a class="btn mt-4" href="{{referencia}}">Norma</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 text-center my-4">
+                            <p>El contenido de Derecho Fácil tiene un carácter divulgativo, orientativo e informativo y no reemplaza la versión original de la ley. Puede tener como fuente una o varias normas y datos de sitios oficiales para complementar la información.</p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
