@@ -1,0 +1,156 @@
+---
+permalink: nuevoproyecto/index.html
+---
+{% extends "src/base.njk" %}
+
+{% block head %}
+<title>Justicia Abierta | Nuevo Proyecto</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+
+    <div class="section m-0 py-6" style="background-color:#f1f4fa">
+        <div class="container">
+            <div class="row my-6 py-6">
+                <div class="col-lg-12">
+
+                    <div class="my-6" style="text-align:center">
+                        <img style="width:60px;height:60px" src="/ELEMENTOS/PROPUESTAS JA_02-17.png">
+                        <h1 style="max-width:400px; margin: 20px auto">¿Quieres realizar un nuevo proyecto?</h1>
+                        <p>Completa el siguiente formulario
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+     
+    <!-- contact-address-area-strat -->
+    <div class="container pt-40 pb-130">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-xl-10 col-sm-12 col-md-12">
+          
+          <form class="propuestas_form" id="form" target="_self" onsubmit="return postToForm();" action="" autocomplete="off">
+            <label for="name">Nombre Completo</label>
+            <input id="name" name="entry.1505065566" type="string" required />
+            <label for="deparatamento">¿En qué departamento se generó este proyecto?</label>
+            <select id="deparatamento" name="entry.1791787968" required>
+              <option value="" disabled selected hidden>Selecciona un Departamento</option>
+              <option value="Alta Verapaz">Alta Verapaz</option>
+              <option value="Baja Verapaz">Baja Verapaz</option>
+              <option value="Chimaltenago">Chimaltenago</option>
+              <option value="Chiquimula">Chiquimula</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="El Progreso">El Progreso</option>
+              <option value="Escuintla">Escuintla</option>
+              <option value="Huehuetenango">Huehuetenango</option> 
+              <option value="Izabal">Izabal</option>
+              <option value="Jalapa">Jalapa</option>
+              <option value="Jutiapa">Jutiapa</option>
+              <option value="Petén">Petén</option> 
+              <option value="Quetzaltenango">Quetzaltenango</option>
+              <option value="Quiché">Quiché</option>
+              <option value="Retalhuleu">Retalhuleu</option>
+              <option value="Sacatepequez">Sacatepequez</option> 
+              <option value="San Marcos">San Marcos</option> 
+              <option value="Santa Rosa">Santa Rosa</option>
+              <option value="Sololá">Sololá</option>
+              <option value="Suchitepequez">Suchitepequez</option>
+              <option value="Totonicapán">Totonicapán</option>
+              <option value="Zacapa">Zacapa</option> 
+            </select>
+            <label for="categoria">¿En qué Categoría entraría el proyecto?</label>
+            <select id="categoria" name="entry.1170069646" required>
+              <option value="" disabled selected hidden>Selecciona una Categoría</option>
+              <option value="Acceso a Justicia">Acceso a Justicia</option>
+              <option value="Transparencia y rendición de cuentas">Transparencia y rendición de cuentas</option>
+              <option value="Acceso a la información y datos abiertos">Acceso a la información y datos abiertos</option>
+              <option value="Participación ciudadana y colaboración">Participación ciudadana y colaboración</option>
+              <option value="Derechos Humanos">Derechos Humanos</option>
+              <option value="Género">Género</option>
+              <option value="Instituciones de Justicia">Instituciones de Justicia</option>
+              <option value="Legislación">Legislación</option> 
+              <option value="Poder Judicial">Poder Judicial</option>
+              <option value="Política Criminal">Política Criminal</option>
+              <option value="Sistema Penitenciario">Sistema Penitenciario</option>
+              <option value="Sistema Registral">Sistema Registral</option>
+              <option value="Pluralismo Jurídico">Pluralismo Jurídico</option>
+              <option value="Inclusión">Inclusión</option>
+              <option value="Transformación Digital">Transformación Digital</option>
+              <option value="Mediciones">Mediciones</option>
+              <option value="Comunicación y Lenguaje Claro">Comunicación y Lenguaje Claro</option>
+            </select>
+            <label for="problema">¿Cuál es el problema que queremos manejar y por qué es importante?</label>  
+            <textarea id="problema" name="entry.1382382532" type="string" required></textarea>
+            <label for="dirigido">¿Para quién es un problema?</label>  
+            <textarea id="dirigido" name="entry.1292327462" type="string" required></textarea>
+            <!--label for="tiempo">Tiempo en el cual se puede llevar a cabo la propuesta</label>  
+            <select id="tiempo" name="entry.1791787968" required>
+              <option value="" disabled selected hidden>Tiempo en el cual se puede llevar a cabo la propuesta</option>
+              <option value="1 año">1 año</option>
+              <option value="2 años">2 años</option>
+              <option value="3 años">3 años</option>
+              <option value="4 años">4 años</option>
+            </select--> 
+            <label for="titulo">Título del proyecto</label>  
+            <input id="titulo" name="entry.1361236886" type="string" required />
+            <label for="resumen">Resumen del proyecto</label>  
+            <input id="resumen" name="entry.1709917995" type="string" required />
+            <label for="encuentro">¿Este proyecto es producto de un encuentro ciudadano? (Eventos, cursos y espacios mediados)</label>  
+            <select id="encuentro" name="entry.2102724523"required>
+              <option value="Si">Si</option>
+              <option value="No">No</option>
+            </select>
+            <!--label for="terminos">Acepto los Términos Y Condiciones</label>   
+            <select id="terminos" name="entry.2038303332" required>
+              <option value="Si">Si</option>
+            </select--> 
+
+            <button id="send" type="submit" class="btn">Envíanos tu Proyecto</button>
+          </form>
+
+          <h3 id="success-msg" style="display:none;"> Su propuesta ha sido enviada</h3>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
+
+{% block body_javascripts %}
+    <script>
+      function postToForm() {
+        var field1 = $("#name").val();
+        var field2 = $("#deparatamento option:selected").text();
+        var field3 = $("#categoria option:selected").text();
+        var field4 = $("#problema").val();
+        var field5 = $("#dirigido").val();
+        var field6 = $("#titulo").val();
+        var field7 = $("#resumen").val();
+        var field8 = $("#encuentro option:selected").text();
+
+        $.ajax({
+            url: "https://docs.google.com/forms/d/e/1FAIpQLSfuR72xLmAWiWplAgEzZZimQsLOD-_6_0GDEGJt3GhuKEyCuA/formResponse?",
+            data: {"entry.1505065566": field1, "entry.1791787968": field2, "entry.1170069646": field3, "entry.1382382532": field4, "entry.1292327462": field5, "entry.1361236886": field6, "entry.1709917995": field7, "entry.2102724523": field8},
+            type: "POST",
+            dataType: "xml",
+            success: function(d)
+        {
+          },
+          error: function(x, y, z)
+          { 
+
+            $('#success-msg').show();
+            $('#form').hide();
+            
+          }
+        });
+        return false;
+      }
+    </script>
+
+{% endblock %}

@@ -1,0 +1,311 @@
+---
+permalink: "index.html"
+---
+
+{% extends "src/base.njk" %}
+
+{% block head %}
+<title>Justicia Abierta | Red Ciudadana</title>
+<link rel="stylesheet" href="/css/main.css" type="text/css" />
+{% endblock %}
+
+{% block content %}
+
+    <div class="popup2">
+        <button id="close2">&times;</button>
+        <a target="_blank" href="https://bit.ly/EncuentroJusticiaAbierta"><img src="/ELEMENTOS/popup-ju.gif"></a>
+    </div>
+
+    <!-- slider-start >
+    <div class="video-container w-100">
+        <video muted autoplay loop>
+            <source src="/ELEMENTOS/SLIDER-RED-JA.mp4" type="video/mp4; "/>        
+        </video>
+        <div class="caption">
+        
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="txt-white " >Desde Red Ciudadana creemos en el poder de la innovación para mejorar los servicios públicos en el sector justicia</h1>
+                </div>
+            </div>
+
+        </div>
+    </div-->
+
+    <div class="section m-0 py-6" style="background-image:url('/ELEMENTOS/ELEMENTOS MEJORAS_JA/SLIDER/JA-18.png');background-repeat: no-repeat;background-size: 100% 100%;">
+        <div class="container">
+            <div class="row my-6 py-6">
+                <div class="col-lg-6 d-flex" style="align-items:center">
+
+                    <div class="my-6" style="text-align:left">
+                        <h3 class="text-white notranslate" style="font-size:40px; margin-bottom:5px">Desde Red Ciudadana </h3>
+                        <h3 class="text-white" style="font-size:28px;font-weight:400;line-heght:32px">Creemos en el poder de la innovación para mejorar los servicios públicos en el sector justicia</h3>
+                    </div>
+
+                </div>
+                <div class="col-lg-6">
+
+                    <div class="my-6" style="text-align:center">
+                        <img style="padding:15px" src="/ELEMENTOS/ELEMENTOS MEJORAS_JA/SLIDER/JA-17.png">
+                        
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--CONTENIDO-->
+
+    <div class="section m-0">
+        <div class="container my-6">
+            <div class="row">
+                <div class="col-xl-12 my-4 text-center">
+
+                    <h1>Programa de Justicia Abierta</h1>
+                    <h6>Un programa de Red Ciudadana que busca contribuir al fortalecimiento y desarrollo del sector justicia, mediante la implementación de tres ejes:
+                    </h6>
+
+                </div>
+            </div>
+
+            <div class="row">
+
+                <!--a href="" class="links_iniciales col-lg-4">
+                    <div class="d-flex links_inicialesv2" style="align-items:center">
+                        <img src="/ELEMENTOS/ELEMENTOS WEB/03_ICONOS/ICONOS-14.png">
+                        <div class="texto_iniciales">
+                            <h6>Investigación y Diagnóstico</h6>
+                            <p>Mediante nuestra investigación, identificamos áreas de mejora y desarrollamos propuestas para fortalecer el sector justicia.</p>
+                        </div> 
+                    </div>
+                </a-->
+
+                <a href="" class="col-lg-4 d-flex justify-coontent-center" style="flex-direction:column;align-items:center">
+                    <img src="/ELEMENTOS/ELEMENTOS WEB/03_ICONOS/ICONOS-14.png" style="width:100px" class="m-4">
+                    <h2 class="text-center" style="height:55px">Investigación y Diagnóstico</h2>
+                    <p class="text-center">Mediante nuestra investigación, identificamos áreas de mejora y desarrollamos propuestas para fortalecer el sector justicia.</p>
+                </a>
+
+                <a href="" class="col-lg-4 d-flex justify-coontent-center" style="flex-direction:column;align-items:center">
+                    <img src="/ELEMENTOS/ELEMENTOS WEB/03_ICONOS/ICONOS-16.png" style="width:100px" class="m-4">
+                    <h2 class="text-center" style="height:55px">Formación</h2>
+                    <p class="text-center">Buscamos fortalecer las capacidades en la implementación de políticas y prácticas innovadoras en el sector justicia.</p>
+                </a>
+
+                <a href="" class="col-lg-4 d-flex justify-coontent-center" style="flex-direction:column;align-items:center">
+                    <img src="/ELEMENTOS/ELEMENTOS WEB/03_ICONOS/ICONOS-27.png" style="width:100px" class="m-4">
+                    <h2 class="text-center" style="height:55px">Innovación Publica</h2>
+                    <p class="text-center">Fomentamos la colaboración y el intercambio de ideas para desarrollar propuestas innovadoras para el sector justicia.</p>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Eventos -->
+    <div class="section m-0">
+        <div class="container my-6">
+            <div class="row">
+                <div class="col-xl-12 text-center">
+
+                    <h1>Procesos de Formación de Justicia Abierta</h1>
+                    <h6>Buscamos fortalecer las capacidades en la implementación de políticas y prácticas innovadoras en el sector justicia.
+                    </h6>
+
+                </div>
+            </div>
+
+            <div class="row py-4 my-4">
+
+                {% for curso in collections.cursos | limit(3) %}
+                <div class="col-lg-4 my-4">
+                    <div class="cuadro_iniciativas">
+                        <img style="height:220px; width:100%" src="{{curso.data.image}}">
+                        <div class="texto_cuadro">
+                            <h3>{{curso.data.title}}</h3>
+                            <p>{{curso.data.descripcion}}</p>
+                            <br>
+                            <a href="{{curso.url}}" class="ver_todo">Más info</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="col-lg-12 text-center my-6">
+                    <a class="btn" href="/procesosdeformacion/index.html">Ver todos los procesos de formación</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- propuestas -->
+    <div class="section m-0">
+        <div class="container py-6">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <h3 class="col-lg-12">Iniciativas de Justicia Abierta</h3>
+                        <br>
+                        {% for iniciativa in collections.iniciativas | limit(4)%}
+                            <a href="{{iniciativa.url}}" target="_blank">
+                                <div class="col-lg-12 cuadro_iniciativa">
+                                    <img src="{{iniciativa.data.image}}">
+                                    <div>
+                                        <h4>{{iniciativa.data.title}}</h6>
+                                        <p style="margin-bottom:5px;font-size:12px">{{iniciativa.data.autor}} | {{iniciativa.data.date | dateFormat('DD/MM/YYYY')}}</p>
+                                        <p>{{iniciativa.data.description}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+                        <div class="col-lg-12 my-6" style="text-align:end">
+                            <a class="btn" href="/iniciativas/index.html">Ver todas las iniciativas</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="row">
+                        <h3 class="col-lg-12">Videos</h3>
+                        <br>
+                        {% for video in collections.videos | limit(3)%}
+                            <div class="col-lg-12 cuadro_video">
+                                {{video.data.link | safe}}
+                                <p>{{video.data.descripcion}}</p>
+                            </div>
+                        {% endfor %}
+                        <div class="col-lg-12 my-6" style="text-align:end">
+                            <a class="btn" href="/videos/index.html">Ver todos los videos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- propuestas -->
+    <div class="section m-0">
+        <div class="container py-6">
+            <div class="row">
+                <div class="col-lg-12">
+
+                    <div style="text-align:center">
+                        <h3>Propuestas Ciudadanas</h3>
+                        <p>Te invitamos a filtrar y encontrar propuestas
+                            ciudadanas en las siguientes áreas
+                        </p>
+                    </div>
+
+                </div>
+
+                <div class="col-lg-12 my-4"> 
+                    <!--coleccion de filtros-->
+                    <div class="row">
+                        {% for categoria in collections.categorias %}
+                        <a href="{{categoria.url}}" class="filtros my-1">{{categoria.data.title}}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                {% for prop in collections.propuestas | limit(3) %}
+                    {% if prop.data.propuestas.encuentro == "Si" %}
+
+                    <div class="col-lg-4 my-4">
+                        <div class="cuadro_propuesta">
+                            <div class="tags">
+                                <a href="/categorias/{{prop.data.propuestas.categoria | slug}}" class="filtros">{{prop.data.propuestas.categoria}}</a>
+                            </div>
+                            <div class="numero_propuesta">
+                                <p>propuesta N.{{prop.data.propuestas.numero_propuesta}}</p>
+                            </div>
+                            <div class="contenido">
+                                <h5>{{prop.data.propuestas.titulo}}</h5>
+                                <p>{{prop.data.propuestas.resumen}}</p>
+                            </div>
+                            <div class="bottom">
+                                <!--div class="candidaturas">
+                                    <h4>4</h4>
+                                    <span>candidatura(s) comprometida(s)</span>
+                                </div>
+                                <div class="ciudadanos">
+                                    <h4>20</h4>
+                                    <span>apoyo(s) ciudadano(s)</span>
+                                </div-->
+                                <div class="botones_finales">
+                                    <!--a href="#" class="apoyar"><i class="fa-solid fa-heart" style="margin-right:4px"></i>Apoyar</a-->
+                                    <a href="{{prop.url}}" class="vermas">Leer más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endif %}
+
+                    {% if prop.data.propuestas.encuentro == "No" %}
+
+                    <div class="col-lg-4 my-4">
+                        <div class="cuadro_propuesta">
+                            <div class="tags">
+                                <a href="/categorias/{{prop.data.propuestas.categoria | slug}}" class="filtros">{{prop.data.propuestas.categoria}}</a>
+                            </div>
+                            <div class="numero_propuesta">
+                                <p>propuesta N.{{prop.data.propuestas.numero_propuesta}}</p>
+                            </div>
+                            <div class="contenido">
+                                <h5>{{prop.data.propuestas.titulo}}</h5>
+                                <p>{{prop.data.propuestas.resumen}}</p>
+                            </div>
+                            <div class="bottom">
+                                <!--div class="candidaturas">
+                                    <h4>4</h4>
+                                    <span>candidatura(s) comprometida(s)</span>
+                                </div>
+                                <div class="ciudadanos">
+                                    <h4>20</h4>
+                                    <span>apoyo(s) ciudadano(s)</span>
+                                </div-->
+                                <div class="botones_finales">
+                                    <!--a href="#" class="apoyar"><i class="fa-solid fa-heart" style="margin-right:4px"></i>Apoyar</a-->
+                                    <a href="{{prop.url}}" class="vermas">Leer más</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {% endif %}
+
+                {% endfor %}
+
+                <div class="col-lg-12 text-center my-6">
+                    <a class="btn" href="/propuestas/page-1/index.html">Ver todas las propuestas</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- slider-start >
+    <div class="video-container w-100">
+        <video muted autoplay loop>
+            <source src="/ELEMENTOS/SLIDER-RED.mp4" type="video/mp4; "/>        
+        </video>
+        <div class="caption">
+            
+            <h1 class="txt-white " >Encuentro de Justicia Abierta</h1>
+            <h6 class="txt-white ">Un espacio de intercambio, inspiración y promoción de justicia abierta
+            </h6>
+            <br>
+            <a class="btn" href="/encuentro/index.html">Encuentro 2023</a>
+        </div>
+    </div-->
+
+    
+
+{% endblock %}
+
+{% block body_javascripts %}
+    <script src="/js/popup2.js"></script>
+{% endblock %}

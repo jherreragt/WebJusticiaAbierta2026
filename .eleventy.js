@@ -1,48 +1,68 @@
+const rmj = require('render-markdown-js');
 const moment = require("moment");
 
+
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addFilter("sub_string", function (str, start = 0, end = 50) {
-    if (!str) return "";
-    return str.substring(start, end);
-  });
 
-  eleventyConfig.addFilter("rmj", function (str) {
-    if (!str) return "";
-    return str;
-  });
+    eleventyConfig.setTemplateFormats("njk,md,html");
+    
+    eleventyConfig.addPassthroughCopy('jsons');
+    eleventyConfig.addPassthroughCopy('src');
+    eleventyConfig.addPassthroughCopy('css');
+    eleventyConfig.addPassthroughCopy('js');
+    eleventyConfig.addPassthroughCopy('admin');
+    eleventyConfig.addPassthroughCopy('assets');
+    eleventyConfig.addPassthroughCopy('ELEMENTOS');
+    eleventyConfig.addPassthroughCopy('_includes');
 
-  eleventyConfig.addFilter("unique", function (arr, key) {
-    if (!Array.isArray(arr)) return arr;
-    if (!key) return [...new Set(arr)];
-    const seen = new Set();
-    return arr.filter((item) => {
-      const val = item[key];
-      if (seen.has(val)) return false;
-      seen.add(val);
-      return true;
+    eleventyConfig.addNunjucksFilter("rmj", function (content) {
+        return rmj(content);
     });
-  });
 
-  eleventyConfig.addFilter("dateFormat", function (date, format) {
-    return moment(date).format(format || "DD/MM/YYYY");
-  });
+    eleventyConfig.addNunjucksFilter("limit", function (array, limit) {
+        return array.slice(0, limit);
+    });
 
-  eleventyConfig.addFilter("limit", function (arr, count) {
-    if (!Array.isArray(arr)) return arr;
-    return arr.slice(0, count);
-  });
+    eleventyConfig.addNunjucksFilter("limitPart", function (array, limit1, limit2) {
+        return array.slice(limit1, limit2);
+    });
 
-  eleventyConfig.addFilter("limitPart", function (arr, start, end) {
-    if (!Array.isArray(arr)) return arr;
-    return arr.slice(start, end);
-  });
+    eleventyConfig.addFilter('log', value => {
+        console.log(value)
+    });
 
-  return {
-    dir: {
-      input: "src",
-      includes: "../_includes",
-      data: "../_data",
-      output: "_site",
-    },
-  };
-};
+    eleventyConfig.addFilter("sub_string", function (string) {
+        return string.substring(0, 150);
+    })
+
+    eleventyConfig.addCollection("propuestas", function (collectionApi) {
+        return collectionApi.getFilteredByTag('propuestas');
+    });
+
+    eleventyConfig.addCollection("proyectos", function (collectionApi) {
+        return collectionApi.getFilteredByTag('proyectos');
+    });
+
+    eleventyConfig.addFilter("dateFormat", function(date, format) {
+        return moment(date).format(format);
+    });
+
+
+    eleventyConfig.addCollection("expedientes", function(collectionApi) {
+        return collectionApi.getAll().filter(item => item.inputPath.startsWith('./src/expedientes/'));
+    });
+
+     // Filtro único para obtener valores únicos de una colección
+    eleventyConfig.addFilter("unique", function(array, key) {
+        const uniqueItems = new Set();
+        return array.filter(item => {
+        const keyValue = item[key];
+        if (!uniqueItems.has(keyValue)) {
+            uniqueItems.add(keyValue);
+            return true;
+        }
+        return false;
+        });
+    });
+
+}

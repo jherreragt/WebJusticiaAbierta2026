@@ -1,0 +1,19 @@
+---
+permalink: "prop_data.json"
+---
+[
+    {% for propuesta in collections.propuestas%}
+    {
+        "numero_propuesta": {{propuesta.data.propuestas.numero_propuesta}},
+        "Nombre": {{propuesta.data.propuestas.Nombre}},
+        "departamento": {{propuesta.data.propuestas.departamento}},
+        "categoria": {{propuesta.data.propuestas.categoria}},
+        "problema": {{propuesta.data.propuestas.problema}},
+        "dirigido": {{propuesta.data.propuestas.dirigido}},
+        "titulo": {{propuesta.data.propuestas.titulo}},
+        "resumen": {{propuesta.data.propuestas.resumen}},
+        "encuentro": {{propuesta.data.propuestas.encuentro}},
+        "terminos": {{propuesta.data.propuestas.terminos}}
+    }
+    {% endfor %}
+]
